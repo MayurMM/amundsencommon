@@ -34,6 +34,16 @@ class TagSchema(AttrsSchema):
 
 
 @attr.s(auto_attribs=True, kw_only=True)
+class PiiType:
+    pii_type: str
+
+
+class PiiTypeSchema(AttrsSchema):
+    class Meta:
+        target = PiiType
+        register_as_scheme = True
+
+@attr.s(auto_attribs=True, kw_only=True)
 class Badge:
     badge_name: str = attr.ib()
     category: str = attr.ib()
@@ -81,6 +91,7 @@ class Column:
     col_type: str
     sort_order: int
     stats: List[Statistics] = []
+    pii_type: Optional[PiiType] = N
 
 
 class ColumnSchema(AttrsSchema):
