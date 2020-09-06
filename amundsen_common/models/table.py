@@ -91,7 +91,7 @@ class Column:
     col_type: str
     sort_order: int
     stats: List[Statistics] = []
-    pii_type: Optional[PiiType] = N
+    pii_type: Optional[PiiType] = None
 
 
 class ColumnSchema(AttrsSchema):
